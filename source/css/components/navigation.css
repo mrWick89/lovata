@@ -1,0 +1,90 @@
+/************************************************************/
+
+.navigation {
+    @mixin flex;
+    @mixin flex_center_x;
+    @mixin flex_center_y;
+    padding: 20px 0 40px 0;
+
+    &__list {
+        list-style: none;
+        @mixin flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    & a {
+        text-decoration: none;
+        color: $black;
+    }
+
+    @define-mixin nav {
+        width: 40px;
+        font-size: 16px;
+        line-height: 40px;
+        letter-spacing: 0.8px;
+        text-align: center;
+        height: 40px;
+        display: block;
+        transition: all 0.3s ease;
+        border: 1px solid $nav-default;
+        margin: 0 5px;
+    }
+
+    &__link, &__arrow {
+        @mixin nav;
+
+        &:hover:not(.disable) {
+            background-color: $nav-bg-hover;
+        }
+
+        &:focus, &:active {
+            background-color: $nav-bg-active;
+        }
+
+        &.active {
+            background-color: $nav-bg-current;
+            color: $white;
+        }
+    }
+
+    &__arrow {
+        width: auto;
+        padding: 0 20px;
+
+        &.disable {
+            cursor: default;
+        }
+
+        &._left {
+            margin-right: 40px;
+        }
+
+        &._right {
+            margin-left: 40px;
+        }
+    }
+}
+
+@media (max-width: 770px) {
+    .navigation__arrow {
+        padding: 0 10px;
+        &._left {
+            margin-right: 5px;
+        }
+
+        &._right {
+            margin-left: 5px;
+        }
+    }
+
+    .navigation__link {
+        width: 31px;
+    }
+}
+
+@media (max-width: 550px) {
+    .navigation {
+        display: none;
+    }
+}

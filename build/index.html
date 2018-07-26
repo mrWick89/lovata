@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru-Ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <section class="top-panel">
+                <div class="filters">
+                    <label for="" class="top-panel__label">Filter:</label>
+                    <input type="checkbox" id="sale" />
+                    <label for="sale">Sale</label>
+                    <input type="checkbox" id="avaibility" />
+                    <label for="avaibility">Avaibility</label>
+                </div>
+                <div class="ordering">
+                    <label for="" class="top-panel__label">Sort by:</label>
+                    <select name="orderby" class="orderby">
+                        <option value="alpha" selected="selected">alphabetical: a-z</option>
+                        <option value="alpha-desc">alphabetical: z-a</option>
+                        <option value="price">price: highest first</option>
+                        <option value="price-desc">price: lowest first</option>
+                    </select>
+                </div>
+            </section>
+            
+            <section class="products swiper-container">
+                <ul class="products__list swiper-wrapper">
+                    <li class="product col-lg-8 swiper-slide">
+                        <div class="product__inner">
+                            <div class="product__thumbnail">
+                                <a href="#">
+                                    <img src="/images/placeholder.png" alt="thumbnail">
+                                </a>
+                                <a class="favorites" href="/?add_to_wishlist=1"  rel="sidebar">
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star"></span>
+                                </a>
+                            </div>
+                            <div class="product__info">
+                                <h2 class="product__title">
+                                    <a href="#">Huawei Mate RS Porsche Design</a>
+                                </h2>
+                                <div class="product__price">
+                                    <span class="new">$2 499.99</span><span class="old">$2 699.99</span>
+                                </div>
+                                <input type="button" class="button product__btn" value="Add to cart">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product col-lg-8 swiper-slide">
+                        <div class="product__inner">
+                            <div class="product__thumbnail">
+                                <a href="#">
+                                    <img src="/images/placeholder.png" alt="thumbnail">
+                                </a>
+                                <a class="favorites" href="/?add_to_wishlist=2" >
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star"></span>
+                                </a>
+                            </div>
+                            <div class="product__info">
+                                <h2 class="product__title">
+                                    <a href="#">Google Pixel 2 XL 64GB</a>
+                                </h2>
+                                <div class="product__price">
+                                    <span class="new">$899.99</span>
+                                </div>
+                                <input type="button" class="button product__btn" value="Add to cart">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product col-lg-8 swiper-slide">
+                        <div class="product__inner">
+                            <div class="product__thumbnail">
+                                <a href="#">
+                                    <img src="/images/placeholder.png" alt="thumbnail">
+                                </a>
+                                <a class="favorites" href="/?add_to_wishlist=3" >
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star"></span>
+                                </a>
+                            </div>
+                            <div class="product__info">
+                                <h2 class="product__title">
+                                    <a href="#">Apple iPhone 7 Plus 256gb red</a>
+                                </h2>
+                                <div class="product__price">
+                                    <span class="new">$899.99</span><span class="old">$949.99</span>
+                                </div>
+                                <input type="button" class="button product__btn" value="Add to cart">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product col-lg-8 swiper-slide">
+                        <div class="product__inner">
+                            <div class="product__thumbnail">
+                                <a href="#">
+                                    <img src="/images/placeholder.png" alt="thumbnail">
+                                </a>
+                                <a class="favorites" href="/?add_to_wishlist=4" >
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star"></span>
+                                </a>
+                            </div>
+                            <div class="product__info">
+                                <h2 class="product__title">
+                                    <a href="#">OnePlus 6 8GB/128GB</a>
+                                </h2>
+                                <div class="product__price">
+                                    <span class="new">$699.99</span><span class="old">$799.99</span>
+                                </div>
+                                <input type="button" class="button product__btn" value="Add to cart">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product col-lg-8 swiper-slide">
+                        <div class="product__inner">
+                            <div class="product__thumbnail">
+                                <a href="#">
+                                    <img src="/images/placeholder.png" alt="thumbnail">
+                                </a>
+                                <a class="favorites" href="/?add_to_wishlist=5" >
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star"></span>
+                                </a>
+                            </div>
+                            <div class="product__info">
+                                <h2 class="product__title">
+                                    <a href="#">Xiaomi Mi Note 2 Pro 128gb</a>
+                                </h2>
+                                <div class="product__price">
+                                    <span class="new">$600.00</span>
+                                </div>
+                                <input type="button" class="button product__btn" value="Add to cart">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product col-lg-8 swiper-slide">
+                        <div class="product__inner">
+                            <div class="product__thumbnail">
+                                <a href="#">
+                                    <img src="/images/placeholder.png" alt="thumbnail">
+                                </a>
+                                <a class="favorites" href="/?add_to_wishlist=6" >
+                                    <span class="fa fa-star-o"></span>
+                                    <span class="fa fa-star"></span>
+                                </a>
+                            </div>
+                            <div class="product__info">
+                                <h2 class="product__title">
+                                    <a href="#">ASUS ZenFone 3 Ultra 64gb zu680kl</a>
+                                </h2>
+                                <div class="product__price">
+                                    <span class="not">not available</span>
+                                </div>
+                                <input type="button" class="button product__btn" value="Add to cart" disabled>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Add Arrows -->
+                <div class="swiper-nav">
+                    <div class="swiper-button-prev">Back</div>
+                    <div class="swiper-button-next">Next</div>
+                </div>
+            
+            
+            </section>
+
+            <div class="navigation">
+                <a href="" class="navigation__arrow disable _left">Back</a>
+                <ul class="navigation__list">
+                    <li><a href="" class="navigation__link active">1</a></li>
+                    <li><a href="" class="navigation__link">2</a></li>
+                    <li><a href="" class="navigation__link">3</a></li>
+                    <li><a href="" class="navigation__link">4</a></li>
+                    <li><a href="" class="navigation__link">5</a></li>
+                    <li><a href="" class="navigation__link">6</a></li>
+                    <li><a href="" class="navigation__link">7</a></li>
+                    <li><a href="" class="navigation__link">8</a></li>
+                    <li><a href="" class="navigation__link">9</a></li>
+                </ul>
+                <a href="" class="navigation__arrow _right">Next</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="js/swiper.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

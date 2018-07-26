@@ -1,0 +1,25 @@
+/* colors */
+
+$blue: #1d5d83;
+$blue-dark: #071f2f;
+$turquoise: #1d6f83;
+$white: #ffffff;
+$yellow: #ffdb6b;
+$orange:#fcbf67;
+$gray: #6a747c;
+$gray-light: #F5F7F8;
+$gray-dark: #555;
+$btn-default: #bcbcbc;
+$btn-hover: #d7d7d7;
+$btn-active: #e4e4e4;
+$btn-disabled: #a1a1a1;
+$black: #333;
+$red: #ff7676;
+$green: #59cc8c;
+$nav-default: #cdcdcd;
+$nav-bg-hover: #d7d7d7;
+$nav-bg-active: #f2f2f2;
+$nav-bg-current: #666666;
+
+/* fonts */
+$ff: 'Open Sans', sans-serif;
