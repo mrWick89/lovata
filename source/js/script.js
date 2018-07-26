@@ -65,50 +65,47 @@ $(document).ready(function() {
   });
 
 
-  $('#avaibility').on('click', function() {
+  $('.filters input[type="checkbox"]').on('click', function() {
     var check = $(this).is(':checked');
     localStorage.setItem($(this).next().text(), check);
 
-    $('li.product').each(function() {
-      $(this).removeClass('not_available');
-      var not_available = $(this).find('.not');
-      if (not_available.length && check == true) {
-        $(this).addClass('not_available');
-      }
-    });
+    if ($(this).attr('id') == 'avaibility') {
+        $('li.product').removeClass('not_available');
+    }
+    if ($(this).attr('id') == 'sale') {
+        $('li.product').removeClass('hide_old');
+    }
+
+    filterHandler($(this));
   });
+
+  filterHandler($('#avaibility'));
+  filterHandler($('#sale'));
 
   function filterHandler(tag) {
       var id = $(tag).next().text();
       var is_checked = localStorage.getItem(id);
       is_checked = (is_checked == 'false') ? false : true;
       if (is_checked === true) {
-          $(tag).click();
+          $(tag).attr('checked', 'checked');
+          if ($(tag).attr('id') == 'avaibility') {
+              $('li.product').each(function() {
+                var not_available = $(this).find('.not');
+                if (not_available.length) {
+                  $(this).addClass('not_available');
+                }
+              });
+          }
+          if ($(tag).attr('id') == 'sale') {
+              $('li.product').each(function() {
+                var old = $(this).find('.old');
+                if (old.length) {
+                  $(this).addClass('hide_old');
+                }
+              });
+          }
       }
   }
-
-  $('#avaibility').each(function() {
-      filterHandler($(this));
-  });
-
-  $('#sale').on('click', function() {
-    var check = $(this).is(':checked');
-    localStorage.setItem($(this).next().text(), check);
-
-    $('li.product').each(function() {
-      $(this).removeClass('hide_old');
-      var old = $(this).find('.old');
-      if (old.length && check == true) {
-        $(this).addClass('hide_old');
-      }
-    });
-  });
-
-
-  $('#sale').each(function() {
-      filterHandler($(this));
-  });
-
 
   $('select.orderby').on('change', function() {
     var option = $(this).find('option:selected').val();

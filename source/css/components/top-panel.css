@@ -28,6 +28,7 @@
     height: 41px;
     margin-right: 20px;
     line-height: 41px;
+    display: flex;
 }
 
 /* Base for label styling */
@@ -49,7 +50,9 @@
 [type="checkbox"]:checked + label:before {
   content: '';
   position: absolute;
-  left: 0; top: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 1.25em; height: 1.25em;
   border: 2px solid #ccc;
   background: #fff;
@@ -62,7 +65,9 @@
 [type="checkbox"]:checked + label:after {
   content: '✔';
   position: absolute;
-  top: .1em; left: .3em;
+  top: 25%;
+  transform: translateY(-50%);
+  left: .3em;
   font-size: 1.3em;
   line-height: 0.8;
   color: #09ad7e;
