@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var storageCount = localStorage.length;
   var mySwiper = undefined;
+  //localStorage.clear();
 
   function windowSize() {
     var screenWidth = $(window).outerWidth();
@@ -97,35 +98,35 @@ $(document).ready(function() {
 
   $('.product__btn').on('click', function(e) {
     e.preventDefault();
-
     $(this).toggleClass('button_active');
-
-    var item = {
-      name: $(this).closest('.product').find('.product__inner-title').text(),
-      btn_text: $(this).val(),
-    }
-    /*var count = localStorage.getItem(item.name);
-    count = (count == null || count == 'null') ? 0 : parseInt(count);
-    count++*/
-
-    //localStorage.setItem(item.name, count);
-    //$(this).val(item.btn_text + ' ' + count);*/
+    btnHandler($(this), e);
   });
 
-  /*
-  if (storageCount > 0) {
-    $('.product__btn').each(function() {
+  $('.product__btn').each(function() {
+      btnHandler($(this), null);
+  });
+
+
+  function btnHandler(tag, e) {
       var item = {
-        name: $(this).closest('.product__info').find('.product__title a').text(),
-        btn_text: $(this).val()
+        name: $(tag).closest('.product').find('.product__inner-title').text(),
+        style: $(tag).hasClass('button_active') ? true : false
       }
-      var count = localStorage.getItem(item.name);
-      if (count != null) {
-        $(this).val(item.btn_text + ' ' + count);
+
+      if (e != null && e.type == 'click') {
+          localStorage.setItem(item.name, item.style);
       }
-    });
+
+      var is_btn_active = localStorage.getItem(item.name);
+      is_btn_active = (is_btn_active == 'false') ? false : true;
+      if (is_btn_active === true) {
+          $(tag).val( 'Checout' );
+          $(tag).addClass('button_active');
+      } else {
+          $(tag).val( 'Add to cart' );
+          $(tag).removeClass('button_active');
+      }
   }
-  */
 
 
 });
