@@ -4,10 +4,10 @@
     &__list {
         @mixin flex;
         list-style: none;
-        /*justify-content: space-between;*/
-        margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
         padding: 0;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 }
 
@@ -15,142 +15,156 @@
     display: block;
     border: 1px solid $gray;
     box-sizing: border-box;
-    margin: 0px 0.66% 20px;
-
-    &.not_available, &.hide_old {
-        display: none;
-    }
+    margin-bottom: 20px;
+    position: relative;
+    padding: 15px;
 
     &__thumbnail {
+        margin: -15px -15px 0;
         padding: 15px;
         background: #ccc;
         position: relative;
-        & img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        & .favorites {
-            position: absolute;
-            top: 24px;
-            right: 25px;
-            font-size: 30px;
-            color: $gray;
-            width: 30px;
-            height: 30px;
-
-            & .fa-star, & .fa-star-o {
-                position: absolute;
-                left: 0;
-            }
-
-            & .fa-star {
-                color: $white;
-                transition: all 0.3s ease;
-            }
-            & .fa-star-o {
-                z-index: 2;
-                color: $nav-default;
-                cursor: pointer;
-
-                &:hover + .fa-star {
-                    color: $nav-bg-hover;
-                }
-
-                &:focus + .fa-star,
-                &:active + .fa-star,
-                &.active + .fa-star {
-                    color: $nav-bg-active;
-                }
-            }
-        }
+        display: block;
     }
 
-    &__info {
-        padding: 15px;
+    &__img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    & .favorites {
+        position: absolute;
+        top: 24px;
+        right: 25px;
+        font-size: 30px;
+        color: $gray;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        padding: 0;
+        background: transparent;
+
+        &:before, &:after {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: all 0.3s ease;
+        }
+
+        &:before {
+            content: "\f005";
+            color: $white;
+        }
+
+        &:after {
+            content: "\f006";
+            z-index: 2;
+        }
+
+        &:hover:before {
+            color: $nav-bg-hover;
+        }
+
+        &:focus:before,
+        &:active:before,
+        &_active:before {
+            color: $nav-bg-active;
+        }
     }
 
     &__title {
         margin-bottom: 0;
         font-size: 2.6rem;
+        padding: 15px 0;
+    }
 
-        & a {
-            color: $gray-dark;
-            text-decoration: none;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            display: block;
-            width: 100%;
-        }
+    &__inner-title {
+        color: $gray-dark;
+        text-decoration: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+        width: 100%;
     }
 
     &__btn {
         font-size: 2rem;
         width: 100%;
+        margin: 20px 0 0;
     }
 
     &__price {
-        padding: 15px 0 20px 0;
 
-        & .new {
+        &_new {
             margin-right: 20px;
-            color: $green;
+            color: $nav-bg-current;
         }
 
-        & .old {
-            text-decoration: line-through;
-            color: $red;
+        &_old {
+            color: $btn-disabled;
+            font-style: italic;
         }
 
-        & .not {
+        &_not {
             color: $btn-default;
+            font-style: italic;
         }
     }
+}
+
+.swiper-wrapper {
+    width: auto;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  background: #fff;
+
+  &_not, &_old {
+      display: none;
+  }
 }
 
 .swiper-button-next, .swiper-button-prev {
-    display: none;
+    display: block;
+    position: relative;
+    background: none;
+    outline: none;
+    border: 1px solid #ccc;
+    width: auto;
+    line-height: 40px;
+    padding: 0 20px;
 }
 
-@media (max-width: 550px) {
-    .swiper-container {
-      width: 100%;
-      height: 100%;
-    }
-    .swiper-slide {
-      font-size: 18px;
-      background: #fff;
-      width: 80%;
-    }
+.swiper-button-next {
+    right: 0;
+}
 
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-nav {
+    @mixin flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+@media (min-width: 550px) {
     .products__list {
-        flex-wrap: nowrap;
-    }
-
-    .swiper-button-next, .swiper-button-prev {
-        display: block;
-        position: relative;
-        background: none;
-        outline: none;
-        border: 1px solid #ccc;
-        width: auto;
-        line-height: 40px;
-        padding: 0 20px;
-    }
-
-    .swiper-button-next {
-        right: 0;
-    }
-
-    .swiper-button-prev {
-        left: 0;
+        flex-wrap: wrap;
     }
 
     .swiper-nav {
-        @mixin flex;
-        justify-content: space-between;
-        margin: 30px 0;
+        display: none;
     }
 }

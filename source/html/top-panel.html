@@ -1,12 +1,12 @@
-<section class="top-panel">
-    <div class="filters">
+<div class="top-panel row">
+    <div class="filters col-lg-8">
         <label for="" class="top-panel__label">Filter:</label>
-        <input type="checkbox" id="sale" />
+        <input type="checkbox" id="sale" data-filter="old"/>
         <label for="sale">Sale</label>
-        <input type="checkbox" id="avaibility" />
+        <input type="checkbox" id="avaibility" data-filter="not"/>
         <label for="avaibility">Avaibility</label>
     </div>
-    <div class="ordering">
+    <div class="ordering col-lg-8">
         <label for="" class="top-panel__label">Sort by:</label>
         <select name="orderby" class="orderby">
             <option value="alpha" selected="selected">alphabetical: a-z</option>
@@ -15,4 +15,4 @@
             <option value="price-desc">price: lowest first</option>
         </select>
     </div>
-</section>
+</div>

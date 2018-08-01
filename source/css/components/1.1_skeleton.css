@@ -1,5 +1,5 @@
 $grid-base: 24;
-$one-col-width: 4%;
+$one-col-width: 4.16%;
 $half: 12;
 * {
   box-sizing: border-box;
@@ -85,19 +85,18 @@ $half: 12;
   padding-right: .5rem;
 }
 
+@each $x in 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 {
+    .col-xs-$(x) {
+      width: calc($one-col-width*$(x));
+    }
+}
 
 @media (min-width: 550px) {
-    @each $x in 1,2,3,4,5,6,7,8,9,10,11,12 {
-      .col-lg-$(x) {
-        width: calc($one-col-width*$half);
-      }
+  @each $x in 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 {
+    .col-sm-$(x) {
+      width: calc($one-col-width*$(x));
     }
-
-    @each $x in 13,14,15,16,17,18,19,20,21,22,23,24 {
-      .col-lg-$(x) {
-        width: 100%;
-      }
-    }
+  }
 }
 
 @media (min-width: 768px) {

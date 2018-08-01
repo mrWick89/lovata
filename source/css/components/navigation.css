@@ -1,9 +1,7 @@
 /************************************************************/
 
 .navigation {
-    @mixin flex;
-    @mixin flex_center_x;
-    @mixin flex_center_y;
+    display: none;
     padding: 20px 0 40px 0;
 
     &__list {
@@ -12,12 +10,7 @@
         margin: 0;
         padding: 0;
     }
-
-    & a {
-        text-decoration: none;
-        color: $black;
-    }
-
+    
     @define-mixin nav {
         width: 40px;
         font-size: 16px;
@@ -33,8 +26,10 @@
 
     &__link, &__arrow {
         @mixin nav;
+        text-decoration: none;
+        color: $black;
 
-        &:hover:not(.disable) {
+        &:hover:not(&_disable):not(&_active) {
             background-color: $nav-bg-hover;
         }
 
@@ -42,49 +37,57 @@
             background-color: $nav-bg-active;
         }
 
-        &.active {
+        &_active {
             background-color: $nav-bg-current;
             color: $white;
+            cursor: default;
         }
+    }
+
+    &__link {
+        width: 31px;
     }
 
     &__arrow {
         width: auto;
-        padding: 0 20px;
+        padding: 0 10px;
 
-        &.disable {
+        &_disable {
             cursor: default;
         }
 
-        &._left {
-            margin-right: 40px;
+        &_left {
+            margin-right: 5px;
         }
 
-        &._right {
-            margin-left: 40px;
+        &_right {
+            margin-left: 5px;
         }
     }
 }
 
-@media (max-width: 770px) {
+@media (min-width: 550px) {
+    .navigation {
+        @mixin flex;
+        @mixin flex_center_x;
+        @mixin flex_center_y;
+    }
+}
+
+@media (min-width: 770px) {
+
     .navigation__arrow {
-        padding: 0 10px;
-        &._left {
-            margin-right: 5px;
+        padding: 0 20px;
+        &_left {
+            margin-right: 40px;
         }
 
-        &._right {
-            margin-left: 5px;
+        &_right {
+            margin-left: 40px;
         }
     }
 
     .navigation__link {
-        width: 31px;
-    }
-}
-
-@media (max-width: 550px) {
-    .navigation {
-        display: none;
+        width: 40px;
     }
 }

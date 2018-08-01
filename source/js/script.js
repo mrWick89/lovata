@@ -1,28 +1,5 @@
 $(document).ready(function() {
-
-  var isMobile = {
-    Android: function() {
-      return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-      return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-      return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-      return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-  };
   var storageCount = localStorage.length;
-
-  //isMobile.any()
   var mySwiper = undefined;
 
   function windowSize() {
@@ -51,30 +28,12 @@ $(document).ready(function() {
   $(window).on('load resize', windowSize);
 
 
-  $('.favorites').click(function() {
-    if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
-      window.sidebar.addPanel(document.title, window.location.href, '');
-    } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
-      window.external.AddFavorite(location.href, document.title);
-    } else if (window.opera && window.print) { // Opera Hotlist
-      this.title = document.title;
-      return true;
-    } else { // webkit - safari/chrome
-      alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
-    }
-  });
-
-
   $('.filters input[type="checkbox"]').on('click', function() {
     var check = $(this).is(':checked');
     localStorage.setItem($(this).next().text(), check);
+    var picked = $(this).data('filter');
 
-    if ($(this).attr('id') == 'avaibility') {
-        $('li.product').removeClass('not_available');
-    }
-    if ($(this).attr('id') == 'sale') {
-        $('li.product').removeClass('hide_old');
-    }
+    $('.products__list li').removeClass('swiper-slide_' + picked);
 
     filterHandler($(this));
   });
@@ -88,22 +47,13 @@ $(document).ready(function() {
       is_checked = (is_checked == 'false') ? false : true;
       if (is_checked === true) {
           $(tag).attr('checked', 'checked');
-          if ($(tag).attr('id') == 'avaibility') {
-              $('li.product').each(function() {
-                var not_available = $(this).find('.not');
-                if (not_available.length) {
-                  $(this).addClass('not_available');
-                }
-              });
-          }
-          if ($(tag).attr('id') == 'sale') {
-              $('li.product').each(function() {
-                var old = $(this).find('.old');
-                if (old.length) {
-                  $(this).addClass('hide_old');
-                }
-              });
-          }
+          var picked = $(tag).data('filter');
+          $('.products__list li').each(function() {
+            var hiddenItem = $(this).find('.product__price_' + picked);
+            if (hiddenItem.length) {
+              $(this).closest('li').addClass('swiper-slide_' + picked);
+            }
+          });
       }
   }
 
@@ -121,48 +71,48 @@ $(document).ready(function() {
             $(this).attr("selected","selected");
       });
 
-      switch (option) {
-        case 'price':
-          $('.products__list li.product').sort(function(a, b) {
-            var string_b = $(b).find('.new').text().replace('$', '').replace(' ', '');
-            var string_a = $(a).find('.new').text().replace('$', '').replace(' ', '');
-            return parseInt(string_b) > parseInt(string_a) ? 1 : -1;
-          }).prependTo('.products__list');
-          break;
-        case 'price-desc':
-          $('.products__list li.product').sort(function(a, b) {
-            var string_b = $(b).find('.new').text().replace('$', '').replace(' ', '');
-            var string_a = $(a).find('.new').text().replace('$', '').replace(' ', '');
-            return parseInt(string_a) > parseInt(string_b) ? 1 : -1;
-          }).prependTo('.products__list');
-          break;
-        case 'alpha-desc':
-          $('.products__list li.product').sort(function(a, b) {
-            return $(b).find('.product__title a').text() > $(a).find('.product__title a').text() ? 1 : -1;
-          }).prependTo('.products__list');
-          break;
-        default:
-          $('.products__list li.product').sort(function(a, b) {
-            return $(a).find('.product__title a').text() > $(b).find('.product__title a').text() ? 1 : -1;
-          }).prependTo('.products__list');
-      }
+      $('.products__list li').sort(function(a, b) {
+          var price_b = $(b).find('.product__price_new').text().replace('$', '').replace(' ', '');
+          var price_a = $(a).find('.product__price_new').text().replace('$', '').replace(' ', '');
+          var alfa_a = $(a).find('.product__title a').text();
+          var alfa_b = $(b).find('.product__title a').text();
+
+          switch (option) {
+            case 'price':
+                return parseInt(price_b) > parseInt(price_a) ? 1 : -1;
+              break;
+            case 'price-desc':
+                return parseInt(price_a) > parseInt(price_b) ? 1 : -1;
+              break;
+            case 'alpha-desc':
+                return alfa_b > alfa_a ? 1 : -1;
+              break;
+            default:
+                return alfa_a > alfa_b ? 1 : -1;
+          }
+
+      }).prependTo('.products__list');
   }
+
 
   $('.product__btn').on('click', function(e) {
     e.preventDefault();
 
-    var item = {
-      name: $(this).closest('.product__info').find('.product__title a').text(),
-      btn_text: $(this).val()
-    }
-    var count = localStorage.getItem(item.name);
-    count = (count == null || count == 'null') ? 0 : parseInt(count);
-    count++
+    $(this).toggleClass('button_active');
 
-    localStorage.setItem(item.name, count);
-    $(this).val(item.btn_text + ' ' + count);
+    var item = {
+      name: $(this).closest('.product').find('.product__inner-title').text(),
+      btn_text: $(this).val(),
+    }
+    /*var count = localStorage.getItem(item.name);
+    count = (count == null || count == 'null') ? 0 : parseInt(count);
+    count++*/
+
+    //localStorage.setItem(item.name, count);
+    //$(this).val(item.btn_text + ' ' + count);*/
   });
 
+  /*
   if (storageCount > 0) {
     $('.product__btn').each(function() {
       var item = {
@@ -175,6 +125,7 @@ $(document).ready(function() {
       }
     });
   }
+  */
 
 
 });

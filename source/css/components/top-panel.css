@@ -4,7 +4,7 @@
     @mixin flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 0px 0.66%;
+    flex-wrap: wrap;
 
     &__label {
         font-size: 2rem;
@@ -21,14 +21,12 @@
 .orderby {
     padding: 10px 10px;
     border: 1px solid #ccc;
-
 }
 
 .filters {
     height: 41px;
-    margin-right: 20px;
     line-height: 41px;
-    display: flex;
+    @mixin flex;
 }
 
 /* Base for label styling */
@@ -97,16 +95,13 @@
 }
 
 /* hover style just for information */
-label:hover:before {
-  border: 2px solid $gray!important;
+[type="checkbox"]:hover + label:before {
+  border: 2px solid $gray;
 }
 
-@media (max-width: 770px) {
-    .top-panel {
-        flex-wrap: wrap;
-    }
 
-    .filters, .ordering {
-        flex-basis: 100%;
+@media (min-width: 770px) {
+    .ordering, .filters {
+        justify-content: flex-end;
     }
 }

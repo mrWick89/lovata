@@ -8,7 +8,7 @@ var cssnano = require('cssnano'); // продвинутая минификаци
 var simpleVars = require('postcss-simple-vars');//использование переменных в css
 var mixins = require('postcss-mixins'); //использование примесей
 var moveMQ = require('postcss-move-media'); // перемещение и объединение media queries
-var loopFor = require('postcss-each'); // Цикл for
+var loopEach = require('postcss-each'); // Цикл each
 
 // HTML & JS
 var rigger = require('gulp-rigger'); // импорт в файл
@@ -72,7 +72,7 @@ gulp.task('css', function() {
     .pipe(postcss([
         smartImport(),
         nested(),
-        loopFor(),
+        loopEach(),
         simpleVars(),
         mixins(),
         moveMQ(),

@@ -5,7 +5,7 @@ html {
 }
 
 *, *::after, *::before {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 .clearfix::after {
@@ -40,9 +40,7 @@ button {
 
 .button,
 button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+input {
     display: inline-block;
     padding: 0 30px;
     color: $gray-dark;
@@ -68,9 +66,10 @@ input[type="button"] {
         background-color: $btn-hover;
     }
 
-    &:focus,
-    &:active {
-        background-color: $btn-active;
+    &:active,
+    &_active {
+        background-color: $white;
+        border-color: $gray-dark;
     }
 
     &:disabled {
@@ -78,8 +77,8 @@ input[type="button"] {
         color: $btn-disabled;
         cursor: auto;
     }
-
 }
+
 
 .uppercase {
   text-transform: uppercase;
