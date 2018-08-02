@@ -77,7 +77,7 @@ gulp.task('css', function() {
         mixins(),
         moveMQ(),
         autoprefixer({
-          browsers: ['last 10 version']
+          browsers: ['last 2 version']
         }),
         cssnano(),
     ]))
