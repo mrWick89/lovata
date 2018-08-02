@@ -25,19 +25,21 @@
         background: #ccc;
         position: relative;
         display: block;
+        height: 260px;
     }
 
     &__img {
         display: block;
-        width: 100%;
-        height: auto;
+        width:100%;
+        height:100%;
+        object-fit:cover;
     }
 
     & .favorites {
         position: absolute;
         top: 24px;
         right: 25px;
-        font-size: 30px;
+        font-size: 3rem;
         color: $gray;
         width: 30px;
         height: 30px;
@@ -166,5 +168,11 @@
 
     .swiper-nav {
         display: none;
+    }
+}
+
+@media (min-width: 1000px) {
+    .product__thumbnail {
+        height: 360px;
     }
 }

@@ -95,7 +95,8 @@
 }
 
 /* hover style just for information */
-[type="checkbox"]:hover + label:before {
+[type="checkbox"]:hover + label:before,
+[type="checkbox"]:focus + label:before {
   border: 2px solid $gray;
 }
 

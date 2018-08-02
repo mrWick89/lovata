@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var storageCount = localStorage.length;
   var mySwiper = undefined;
-  //localStorage.clear();
+
 
   function windowSize() {
     var screenWidth = $(window).outerWidth();
@@ -119,7 +119,7 @@ $(document).ready(function() {
 
       var is_btn_active = localStorage.getItem(item.name);
       is_btn_active = (is_btn_active == 'false') ? false : true;
-      if (is_btn_active === true) {
+      if (localStorage.getItem(item.name) && is_btn_active === true) {
           $(tag).val( 'Checout' );
           $(tag).addClass('button_active');
       } else {
@@ -127,6 +127,31 @@ $(document).ready(function() {
           $(tag).removeClass('button_active');
       }
   }
+
+
+  $('.favorites').on('click', function() {
+      var parentIndex = $(this).closest('li').index();
+      var active = false;
+      $(this).toggleClass('favorites_active');
+      if ($(this).hasClass('favorites_active')) {
+          active = true;
+          alert('Add to favorites');
+      } else {
+          alert('Remove from favorites');
+      }
+
+      localStorage.setItem('favorite' + parentIndex, active);
+  });
+
+  $('.favorites').each(function() {
+      var parentIndex = $(this).closest('li').index();
+
+      var is_btn_active = localStorage.getItem('favorite' + parentIndex);
+      is_btn_active = (is_btn_active == 'false') ? false : true;
+      if (localStorage.getItem('favorite' + parentIndex) && is_btn_active === true) {
+          $(this).addClass('favorites_active');
+      }
+  });
 
 
 });

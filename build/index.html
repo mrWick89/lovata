@@ -24,8 +24,8 @@
                     <label for="avaibility">Avaibility</label>
                 </div>
                 <div class="ordering col-lg-8">
-                    <label for="" class="top-panel__label">Sort by:</label>
-                    <select name="orderby" class="orderby">
+                    <label for="orderby" class="top-panel__label">Sort by:</label>
+                    <select name="orderby" class="orderby" id="orderby">
                         <option value="alpha" selected="selected">alphabetical: a-z</option>
                         <option value="alpha-desc">alphabetical: z-a</option>
                         <option value="price">price: highest first</option>
@@ -37,80 +37,100 @@
             <div class="products swiper-container">
                 <ul class="products__list swiper-wrapper row">
                     <li class="col-xs-20 col-sm-12 col-lg-8 swiper-slide">
-                        <div class="product">
-                            <a href="#" class="product__thumbnail">
-                                <img src="/images/placeholder.png" alt="thumbnail" class="product__img">
+                        <div class="product" itemscope itemtype="http://schema.org/Product">
+                            <a href="#" class="product__thumbnail" itemprop="url">
+                                <img src="/images/hoodie_2_front.jpg" alt="Huawei Mate RS Porsche Design" class="product__img" itemprop="image">
                             </a>
                             <button type="button" name="button" class="favorites"></button>
                             <h2 class="product__title">
-                                <a href="#" class="product__inner-title">Huawei Mate RS Porsche Design</a>
+                                <a href="#" class="product__inner-title" itemprop="name">Huawei Mate RS Porsche Design</a>
                             </h2>
-                            <span class="product__price product__price_new">$2 499.99</span><s class="product__price product__price_old">$2 699.99</s>
+                            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <span class="product__price product__price_new" itemprop="price" content="2499.99">$2 499.99</span>
+                                <span itemprop="priceCurrency" content="USD"></span>
+                            </span>
+                            <s class="product__price product__price_old">$2 699.99</s>
                             <input type="button" class="button product__btn" value="Add to cart">
                         </div>
                     </li>
                     <li class="col-xs-20 col-sm-12 col-lg-8 swiper-slide">
-                        <div class="product">
-                            <a href="#" class="product__thumbnail">
-                                <img src="/images/placeholder.png" alt="thumbnail" class="product__img">
+                        <div class="product" itemscope itemtype="http://schema.org/Product">
+                            <a href="#" class="product__thumbnail" itemprop="url">
+                                <img src="/images/placeholder@2x.png" alt="Google Pixel 2 XL 64GB" class="product__img" itemprop="image">
                             </a>
                             <button type="button" name="button" class="favorites"></button>
                             <h2 class="product__title">
-                                <a href="#" class="product__inner-title">Google Pixel 2 XL 64GB</a>
+                                <a href="#" class="product__inner-title" itemprop="name">Google Pixel 2 XL 64GB</a>
                             </h2>
-                            <span class="product__price product__price_new">$899.99</span>
+                            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <span class="product__price product__price_new" itemprop="price" content="899.99">$899.99</span>
+                                <span itemprop="priceCurrency" content="USD"></span>
+                            </span>
                             <input type="button" class="button product__btn" value="Add to cart">
                         </div>
                     </li>
                     <li class="col-xs-20 col-sm-12 col-lg-8 swiper-slide">
-                        <div class="product">
-                            <a href="#" class="product__thumbnail">
-                                <img src="/images/placeholder.png" alt="thumbnail" class="product__img">
+                        <div class="product" itemscope itemtype="http://schema.org/Product">
+                            <a href="#" class="product__thumbnail" itemprop="url">
+                                <img src="/images/placeholder.png" alt="Apple iPhone 7 Plus 256gb red" class="product__img" itemprop="image">
                             </a>
                             <button type="button" name="button" class="favorites"></button>
                             <h2 class="product__title">
-                                <a href="#" class="product__inner-title">Apple iPhone 7 Plus 256gb red</a>
+                                <a href="#" class="product__inner-title" itemprop="name">Apple iPhone 7 Plus 256gb red</a>
                             </h2>
-                            <span class="product__price product__price_new">$899.99</span><s class="product__price product__price_old">$949.99</s>
+                            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <span class="product__price product__price_new" itemprop="price" content="899.99">$899.99</span>
+                                <span itemprop="priceCurrency" content="USD"></span>
+                                <s class="product__price product__price_old">$949.99</s>
+                            </span>
                             <input type="button" class="button product__btn" value="Add to cart">
                         </div>
                     </li>
                     <li class="col-xs-20 col-sm-12 col-lg-8 swiper-slide">
-                        <div class="product">
-                            <a href="#" class="product__thumbnail">
-                                <img src="/images/placeholder.png" alt="thumbnail" class="product__img">
+                        <div class="product" itemscope itemtype="http://schema.org/Product">
+                            <a href="#" class="product__thumbnail" itemprop="url">
+                                <img src="/images/008.webp" alt="OnePlus 6 8GB/128GB" class="product__img" itemprop="image">
                             </a>
                             <button type="button" name="button" class="favorites"></button>
                             <h2 class="product__title">
-                                <a href="#" class="product__inner-title">OnePlus 6 8GB/128GB</a>
+                                <a href="#" class="product__inner-title" itemprop="name">OnePlus 6 8GB/128GB</a>
                             </h2>
-                            <span class="product__price product__price_new">$699.99</span><s class="product__price product__price_old">$799.99</s>
+                            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <span class="product__price product__price_new" itemprop="price" content="699.99">$699.99</span>
+                                <span itemprop="priceCurrency" content="USD"></span>
+                                <s class="product__price product__price_old">$799.99</s>
+                            </span>
                             <input type="button" class="button product__btn" value="Add to cart">
                         </div>
                     </li>
                     <li class="col-xs-20 col-sm-12 col-lg-8 swiper-slide">
-                        <div class="product">
-                            <a href="#" class="product__thumbnail">
-                                <img src="/images/placeholder.png" alt="thumbnail" class="product__img">
+                        <div class="product" itemscope itemtype="http://schema.org/Product">
+                            <a href="#" class="product__thumbnail" itemprop="url">
+                                <img src="/images/placeholder.png" alt="Xiaomi Mi Note 2 Pro 128gb" class="product__img" itemprop="image">
                             </a>
                             <button type="button" name="button" class="favorites"></button>
                             <h2 class="product__title">
-                                <a href="#" class="product__inner-title">Xiaomi Mi Note 2 Pro 128gb</a>
+                                <a href="#" class="product__inner-title" itemprop="name">Xiaomi Mi Note 2 Pro 128gb</a>
                             </h2>
-                            <span class="product__price product__price_new">$600.00</span>
+                            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <span class="product__price product__price_new" itemprop="price" content="600.00">$600.00</span>
+                                <span itemprop="priceCurrency" content="USD"></span>
+                            </span>
                             <input type="button" class="button product__btn" value="Add to cart">
                         </div>
                     </li>
                     <li class="col-xs-20 col-sm-12 col-lg-8 swiper-slide">
-                        <div class="product">
-                            <a href="#" class="product__thumbnail">
-                                <img src="/images/placeholder.png" alt="thumbnail" class="product__img">
+                        <div class="product" itemscope itemtype="http://schema.org/Product">
+                            <a href="#" class="product__thumbnail" itemprop="url">
+                                <img src="/images/placeholder.png" alt="ASUS ZenFone 3 Ultra 64gb zu680kl" class="product__img" itemprop="image">
                             </a>
                             <button type="button" name="button" class="favorites"></button>
                             <h2 class="product__title">
-                                <a href="#" class="product__inner-title">ASUS ZenFone 3 Ultra 64gb zu680kl</a>
+                                <a href="#" class="product__inner-title" itemprop="name">ASUS ZenFone 3 Ultra 64gb zu680kl</a>
                             </h2>
-                            <span class="product__price product__price_not">not available</span>
+                            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <span class="product__price product__price_not" itemprop="price" content="not available">not available</span>
+                            </span>
                             <input type="button" class="button product__btn" value="Add to cart" disabled>
                         </div>
                     </li>

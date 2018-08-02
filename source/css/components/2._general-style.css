@@ -62,11 +62,10 @@ input {
         outline: 0;
     }
 
-    &:hover {
+    &:hover, &:focus {
         background-color: $btn-hover;
     }
 
-    &:active,
     &_active {
         background-color: $white;
         border-color: $gray-dark;
